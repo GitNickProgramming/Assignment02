@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :course_id %>
-    <%= form.text_field :course_id %>
+    <%= form.collection_select :course_id, Course.all, :id, :number %>
   </div>
 
   <div class="field">
     <%= form.label :professor_id %>
-    <%= form.text_field :professor_id %>
+    <%= form.collection_select :professor_id, Professor.all, :id, :name %>
   </div>
 
   <div class="field">
@@ -28,7 +28,12 @@
 
   <div class="field">
     <%= form.label :semester_id %>
-    <%= form.text_field :semester_id %>
+    <%= form.collection_select :semester_id, Semester.all, :id, :semester %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_id %><br>
+    <%= form.collection_check_boxes(:student_ids, @students, :id, :name) %>
   </div>
 
   <div class="actions">

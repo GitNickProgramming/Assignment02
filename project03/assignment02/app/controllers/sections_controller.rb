@@ -15,10 +15,12 @@ class SectionsController < ApplicationController
   # GET /sections/new
   def new
     @section = Section.new
+    @students = Student.all
   end
 
   # GET /sections/1/edit
   def edit
+    @students = Student.all
   end
 
   # POST /sections
@@ -69,6 +71,6 @@ class SectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def section_params
-      params.require(:section).permit(:course_id, :professor_id, :year, :semester_id)
+      params.require(:section).permit(:course_id, :professor_id, :year, :semester_id, :student_ids => [])
     end
 end

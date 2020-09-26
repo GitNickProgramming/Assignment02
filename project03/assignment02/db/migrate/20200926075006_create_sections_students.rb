@@ -1,6 +1,6 @@
-class CreateSectionStudents < ActiveRecord::Migration[6.0]
+class CreateSectionsStudents < ActiveRecord::Migration[6.0]
   def change
-    create_table :section_students do |t|
+    create_table :sections_students do |t|
       t.references :student, null: false, foreign_key: true
       t.references :section, null: false, foreign_key: true
 

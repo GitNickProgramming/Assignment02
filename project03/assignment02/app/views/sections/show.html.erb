@@ -2,12 +2,12 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @section.course_id %>
+  <%= @section.course.number %>
 </p>
 
 <p>
   <strong>Professor:</strong>
-  <%= @section.professor_id %>
+  <%= @section.professor.name %>
 </p>
 
 <p>
@@ -17,8 +17,17 @@
 
 <p>
   <strong>Semester:</strong>
-  <%= @section.semester_id %>
+  <%= @section.semester.semester %>
 </p>
+
+<p>
+  <strong>Students:</strong>
+</p>
+<ul>
+  <% @section.students.each do |student| %>
+  <%= student.name %>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', sections_path %>
